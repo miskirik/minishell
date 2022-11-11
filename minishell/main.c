@@ -6,7 +6,7 @@
 /*   By: yacis <yacis@student.42istanbul.com.tr>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/11/10 18:11:29 by yacis             #+#    #+#             */
-/*   Updated: 2022/11/11 21:55:56 by yacis            ###   ########.fr       */
+/*   Updated: 2022/11/11 21:58:53 by yacis            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -48,10 +48,10 @@ char	*ft_strchr(const char *str, int c)
 
 void pwd()
 {
-	char cwd[1024];
-    chdir("/path/to/change/directory/to");
-    getcwd(cwd, sizeof(cwd));
-    printf("%s\n", cwd);
+	char	cwd[1024];
+	chdir("/path/to/change/directory/to");
+	getcwd(cwd, sizeof(cwd));
+	printf("%s\n", cwd);
 }
 
 void	echo(char *str)
@@ -67,9 +67,7 @@ void	echo(char *str)
 		printf("%s\n", str);
 	}
 	else if (str[4] == ' ' && str[5] == '-' && str[6] == 'n')
-	{
 		return ;
-	}
 	else
 	{
 		str += 5;
@@ -79,12 +77,12 @@ void	echo(char *str)
 
 int main(void)
 {
-	char *read;
+	char	*read;
 
 	while (1)
 	{
-		read = readline("minishell ~ % ");
-		if (!(ft_strcmp(read, "pwd")))
+		read = readline("minishell ~ % "); // Yürütme anında okunan her satır read değişkenine atılır.
+		if (!(ft_strcmp(read, "pwd"))) // read değişkeni pwd ise pwd fonksiyonuna yönelendirir.
 			pwd();
 		else if (read[0] == 'e' && read[1] == 'c' && read[2] == 'h' && read[3] == 'o')
 		{
